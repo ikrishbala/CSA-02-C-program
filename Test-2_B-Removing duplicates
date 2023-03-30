@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+void removeDuplicates(char *str) {
+    int len = strlen(str);
+    int i, j, k;
+
+    for(i=0; i<len; i++) {
+        for(j=i+1; j<len; j++) {re
+            if(str[i] == str[j]) {
+                for(k=j; k<len; k++) {
+                    str[k] = str[k+1];
+                }
+                len--;
+                j--;
+            }
+        }
+    }
+}
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
+    removeDuplicates(str);
+    printf("String after removing duplicates: %s", str);
+    return 0;
+}
